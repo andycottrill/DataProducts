@@ -1,0 +1,30 @@
+---
+title: "Ski Fields of Victoria, Australia."
+author: "Andy Cottrill"
+date: "10 August 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Map of the Ski Field Region in Victoria.
+```{r, comment=FALSE, warning=FALSE}
+
+library(htmltools)
+library(leaflet)
+df <- read.csv(textConnection(
+"Name,Lat,Long
+Falls Creek Ski Resort (1780m),-36.871,147.277
+Mt Hotham Ski Resort (1857m),-36.985,147.145
+Mt Buffalo (1723m),-36.776,146.768
+Mt Buller (1805m), -37.146, 146.434"))
+
+leaflet(df) %>% addTiles() %>%
+  setView(146.85, -36.9, 10) %>%
+  addMarkers(~Long, ~Lat, popup = ~htmlEscape(Name))
+```
+
+
+
