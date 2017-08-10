@@ -2,7 +2,9 @@
 title: "Ski Fields of Victoria, Australia."
 author: "Andy Cottrill"
 date: "10 August 2017"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
